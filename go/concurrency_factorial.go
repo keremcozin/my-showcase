@@ -1,4 +1,5 @@
 // A Go Program to calculate factorials concurrently with user given input.
+// big.Int is used in this program to allow user to enter bigger numbers. 
 
 package main
 
