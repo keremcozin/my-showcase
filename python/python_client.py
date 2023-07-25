@@ -1,5 +1,5 @@
-# A Python program to show server/client model by using Go as server and Python as the client side.
-# This program should run after 'go_server.go' Go program starts, to test the interoperability.
+# A Python program to show server/client model by using Go program as server and Python program as the client side.
+# This program should start after running 'go_server.go' to test the interoperability.
 
 import socket
 
