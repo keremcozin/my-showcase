@@ -1,2 +1,2 @@
 # my-showcase
-Some of my projects.
+Some of the programs I made by using Go or Python programming languages.
