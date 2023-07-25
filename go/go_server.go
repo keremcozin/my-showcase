@@ -11,8 +11,6 @@ import (
 func handleClient(conn net.Conn) {
 	defer conn.Close()
 
-	// Handle client's requests here
-	// For this example, we'll simply echo the received message back to the client.
 	buf := make([]byte, 1024)
 	for {
 		n, err := conn.Read(buf)
