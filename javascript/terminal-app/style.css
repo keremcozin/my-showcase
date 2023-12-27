@@ -1,0 +1,27 @@
+/* style.css */
+body {
+    background-color: #1e1e1e;
+    color: #ffffff; 
+    font-family: monospace;
+}
+
+#terminal {
+    width: 80%;
+    height: 300px;
+    margin: 20px auto;
+    border: 1px solid #333;
+    overflow: auto;
+    padding: 10px;
+    background-color: #2d2d2d; 
+}
+
+#input {
+    width: calc(100% - 22px);
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    background-color: #333; 
+    color: #ffffff;
+    padding: 5px;
+    font-family: monospace;
+}

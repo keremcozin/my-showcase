@@ -1,0 +1,55 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded Terminal</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <div id="terminal"></div>
+    <input id="input" type="text" placeholder="Type a command and press Enter">
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var terminal = document.getElementById('terminal');
+            var input = document.getElementById('input');
+
+            input.addEventListener('keydown', function (event) {
+                if (event.key === 'Enter') {
+                    executeCommand(input.value);
+                    input.value = '';
+                }
+            });
+
+            function executeCommand(command) {
+                fetch('http://127.0.0.1:3000/execute', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ command }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    appendToTerminal('> ' + command);
+                    appendToTerminal(data.output);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+
+            function appendToTerminal(content) {
+                var output = document.createElement('div');
+                output.textContent = content;
+                terminal.appendChild(output);
+                terminal.scrollTop = terminal.scrollHeight;
+            }
+        });
+    </script>
+
+</body>
+</html>
